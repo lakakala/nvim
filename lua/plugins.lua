@@ -47,6 +47,14 @@ function M.setup()
 		{ "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 		"simrat39/symbols-outline.nvim",
 		{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+		{
+			"nvim-lualine/lualine.nvim",
+			dependencies = { "nvim-tree/nvim-web-devicons" },
+		},
+		{
+			"lewis6991/gitsigns.nvim",
+		},
+		{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	}
 	local opts = {}
 	require("lazy").setup(plugins, opts)

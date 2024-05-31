@@ -122,3 +122,7 @@ require("conform").setup({
 		lsp_fallback = true,
 	},
 })
+
+require("lualine").setup({
+	theme = "nord",
+})
