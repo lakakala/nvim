@@ -20,8 +20,13 @@ function M.setup()
 		"williamboman/mason-lspconfig.nvim",
 		"nvimdev/lspsaga.nvim",
 		"hrsh7th/nvim-cmp",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lsp",
 		"saadparwaiz1/cmp_luasnip",
+		"rafamadriz/friendly-snippets",
+		"onsails/lspkind-nvim",
 		"L3MON4D3/LuaSnip",
 		"stevearc/conform.nvim",
 		{
@@ -34,9 +39,14 @@ function M.setup()
 			end,
 			dependencies = { { "nvim-tree/nvim-web-devicons" } },
 		},
-		{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
+		{
+			"akinsho/bufferline.nvim",
+			version = "*",
+			dependencies = "nvim-tree/nvim-web-devicons",
+		},
 		{ "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 		"simrat39/symbols-outline.nvim",
+		{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	}
 	local opts = {}
 	require("lazy").setup(plugins, opts)
