@@ -49,7 +49,7 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end,
 	},
-	mapping = cmp.mapping.preset.insert({
+	mapping = {
 		["<C-u>"] = cmp.mapping.scroll_docs(-4), -- Up
 		["<C-d>"] = cmp.mapping.scroll_docs(4), -- Down
 		-- C-b (back) C-f (forward) for snippet placeholder navigation.
@@ -76,20 +76,14 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-	}),
-	sources = {
-		{
-			{ name = "nvim_lsp" },
-			-- 以下插件作为前提：
-			-- { 'L3MON4D3/LuaSnip' },
-			-- { 'saadparwaiz1/cmp_luasnip' },
-			{ name = "luasnip" },
-		},
-		{
-			{ name = "buffer" },
-			{ name = "path" },
-		},
 	},
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" }, -- For luasnip users.
+	}, {
+		{ name = "buffer" },
+		{ name = "path" },
+	}),
 	formatting = {
 		format = lspkind.cmp_format({
 			with_text = true, -- do not show text alongside icons
@@ -100,6 +94,13 @@ cmp.setup({
 				return vim_item
 			end,
 		}),
+	},
+})
+
+cmp.setup.cmdline({ "/", "?" }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
 	},
 })
 
