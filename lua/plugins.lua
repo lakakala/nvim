@@ -61,6 +61,14 @@ function M.setup()
 			"lewis6991/gitsigns.nvim",
 		},
 		{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+		{
+			"nvim-tree/nvim-tree.lua",
+			version = "*",
+			lazy = false,
+			dependencies = {
+				"nvim-tree/nvim-web-devicons",
+			},
+		},
 	}
 	local opts = {}
 	require("lazy").setup(plugins, opts)

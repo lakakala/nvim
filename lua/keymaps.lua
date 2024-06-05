@@ -30,3 +30,6 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+
+local treeApi = require("nvim-tree.api")
+vim.keymap.set("n", "<leader>b", treeApi.tree.toggle, opts)
