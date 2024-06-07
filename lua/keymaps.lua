@@ -33,3 +33,7 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 local treeApi = require("nvim-tree.api")
 vim.keymap.set("n", "<leader>b", treeApi.tree.toggle, opts)
+
+vim.keymap.set("n", "<leader>e", function()
+	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end)

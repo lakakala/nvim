@@ -1,4 +1,18 @@
-require("bufferline").setup({})
+require("bufferline").setup({
+	options = {
+		diagnostics = "nvim_lsp",
+		diagnostics_update_in_insert = false,
+		-- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
+		diagnostics_indicator = function(count, level, diagnostics_dict, context)
+			local s = " "
+			for e, n in pairs(diagnostics_dict) do
+				local sym = e == "error" and " " or (e == "warning" and " " or "")
+				s = s .. n .. sym
+			end
+			return s
+		end,
+	},
+})
 
 require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
